@@ -9,7 +9,6 @@ func main() {
 
 	operacao := "debito"
 	valor := 10
-
 	saldo, erro := calculasaldo(operacao, valor, saldo)
 	if erro != "" {
 		fmt.Println(erro)
