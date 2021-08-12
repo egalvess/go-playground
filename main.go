@@ -29,15 +29,26 @@ saldo,erro=calculasaldo(operacao, valor, saldo)
 
 if ( erro != "") {fmt.Println(erro)}else{fmt.Println(saldo)}
 
+operacao = "despesa"
+valor = 10
+
+saldo,erro=calculasaldo(operacao, valor, saldo)
+if ( erro != "") {fmt.Println(erro)}else{fmt.Println(saldo)}
+
+operacao = "receita"
+valor = 5
+saldo,erro=calculasaldo(operacao, valor, saldo)
+if ( erro != "") {fmt.Println(erro)}else{fmt.Println(saldo)}
+
 }
 
 func calculasaldo(operacao string, valor int, saldoatual int) (int,string){
-if (operacao == "debito"){
+if (operacao == "debito" || operacao == "despesa"){
 return saldoatual + valor,""}
 
-if (operacao == "credito"){
+if (operacao == "credito" || operacao == "receita"){
 if (valor <= saldoatual){
 return saldoatual - valor,""}else {return saldoatual,"Cê tá sem dinheiro tião"}
 }
 
-return saldoatual,""
+return saldoatual,""}
